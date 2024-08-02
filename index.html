@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Todos</title>
+</head>
+<body class="bg-dark text-light">
+    <div class="container py-5">
+        <div>
+          <h1>Todos</h1>
+          <button id="add-todo-btn" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#createTodoModal">Create Todo</button>
+        </div>
+        <table id="todos-table" class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Create Modal -->
+    <div class="modal fade" id="createTodoModal" tabindex="-1" aria-labelledby="createEmployeeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="createTodoModalLabel" style="color: black;">Create Todo</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="title_create" class="form-label" style="color: black;">Title</label>
+              <input type="text" class="form-control" id="title_create">
+            </div>
+            
+            <div class="mb-3">
+              <label for="status_create" class="form-label" style="color: black;">Select an option</label>
+              <select class="form-select" id="exampleSelect">
+                  <option value="TODO">TODO</option>
+                  <option value="IN_PROGRESS">IN PROGRESS</option>
+                  <option value="COMPLETE">COMPLETE</option>
+                  <option value="OBSOLETE">OBSOLETE</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button id="confirm-create-button" type="button" data-bs-dismiss="modal" class="btn btn-primary">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
