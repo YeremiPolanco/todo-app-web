@@ -10,6 +10,19 @@
     <div class="container py-5">
         <div>
           <h1>Todos</h1>
+          <div class="input-group mb-3">
+            <input type="text" id="search-bar" class="form-control" placeholder="Buscar todos" aria-label="Search todos" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar 🔎</button>
+          </div>
+          <div class="input-group mb-3">
+            <select class="form-select" id="status-filter">
+                <option value="">All Statuses</option>
+                <option value="TODO">TODO</option>
+                <option value="IN_PROGRESS">IN PROGRESS</option>
+                <option value="COMPLETE">COMPLETE</option>
+                <option value="OBSOLETE">OBSOLETE</option>
+            </select>
+          </div>
           <button id="add-todo-btn" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#createTodoModal">Create Todo</button>
         </div>
         <table id="todos-table" class="table table-dark table-striped">
@@ -26,7 +39,7 @@
     </div>
 
     <!-- Create Modal -->
-    <div class="modal fade" id="createTodoModal" tabindex="-1" aria-labelledby="createEmployeeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="createTodoModal" tabindex="-1" aria-labelledby="createTodoModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -40,7 +53,7 @@
             </div>
             
             <div class="mb-3">
-              <label for="status_create" class="form-label" style="color: black;">Select an option</label>
+              <label for="exampleSelect" class="form-label" style="color: black;">Select an option</label>
               <select class="form-select" id="exampleSelect">
                   <option value="TODO">TODO</option>
                   <option value="IN_PROGRESS">IN PROGRESS</option>
@@ -57,6 +70,59 @@
       </div>
     </div>
 
+    <!-- Update Modal -->
+    <div class="modal fade" id="updateTodoModal" tabindex="-1" aria-labelledby="updateTodoModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="updateTodoModalLabel" style="color: black;">Update Todo</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="title_update" class="form-label" style="color: black;">Title</label>
+              <input type="text" class="form-control" id="title_update">
+            </div>
+            
+            <div class="mb-3">
+              <label for="status_update" class="form-label" style="color: black;">Status</label>
+              <select class="form-select" id="status_update">
+                  <option value="TODO">TODO</option>
+                  <option value="IN_PROGRESS">IN PROGRESS</option>
+                  <option value="COMPLETE">COMPLETE</option>
+                  <option value="OBSOLETE">OBSOLETE</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button id="confirm-update-button" type="button" data-bs-dismiss="modal" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Modal -->
+<div class="modal fade" id="deleteTodoModal" tabindex="-1" aria-labelledby="deleteTodoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteTodoModalLabel" style="color: black;">Delete Todo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: black;">
+        <p>Deseas eliminar el todo?</p>
+        <p id="todo-delete-info"></p> <!-- This will display the todo information -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button id="confirm-delete-button" type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/js/services.js"></script>
     <script src="/js/index.js"></script>
